@@ -4,7 +4,7 @@ pipeline {
     stage('npm & docker') {
       steps {
         sh 'npm init -y && npm install express && npm install mongodb'
-        sh 'docker-compose up'
+        sh 'docker-compose up -d'
       }
     }
 
@@ -14,7 +14,13 @@ pipeline {
       }
     }
 
-    stage('error') {
+    stage('shut down') {
+      steps {
+        sh 'docker-compose down'
+      }
+    }
+
+    stage('finish') {
       steps {
         sh 'echo "Done!"'
       }
