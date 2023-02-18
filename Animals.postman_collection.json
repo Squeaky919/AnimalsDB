@@ -65,7 +65,7 @@
 							"var response = pm.response.json()",
 							"var isThere = response.some(n => n.animal === animal)",
 							"pm.test(`Is ${animal} there?`, () => {",
-							"    pm.expect(isThere).to.be.true",
+							"    pm.expect(isThere).to.be.false",
 							"})"
 						],
 						"type": "text/javascript"
